@@ -47,17 +47,17 @@ const result = range(height)
     return (
       acc +
       Number(
-        getSearchSpace(rowIdx, colIdx).reduce((acc, line) => {
-          return (
+        getSearchSpace(rowIdx, colIdx).reduce(
+          (acc, line) =>
             acc +
             Number(
               Bun.deepEquals(
                 line.map(([rowIdx, colIdx]) => searchGrid[rowIdx][colIdx]),
                 ["M", "A", "S"],
               ),
-            )
-          );
-        }, 0) === 2,
+            ),
+          0,
+        ) === 2,
       )
     );
   }, 0);
